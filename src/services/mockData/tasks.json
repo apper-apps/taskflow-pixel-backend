@@ -1,0 +1,122 @@
+[
+  {
+    "Id": 1,
+    "title": "Review quarterly reports",
+    "completed": false,
+    "priority": "high",
+    "dueDate": "2024-12-20",
+    "categoryId": "1",
+    "createdAt": "2024-12-18T09:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 2,
+    "title": "Prepare presentation for client meeting",
+    "completed": false,
+    "priority": "high",
+    "dueDate": "2024-12-19",
+    "categoryId": "1",
+    "createdAt": "2024-12-18T10:30:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 3,
+    "title": "Update project documentation",
+    "completed": true,
+    "priority": "medium",
+    "dueDate": "2024-12-18",
+    "categoryId": "1",
+    "createdAt": "2024-12-17T14:15:00.000Z",
+    "completedAt": "2024-12-18T16:30:00.000Z"
+  },
+  {
+    "Id": 4,
+    "title": "Schedule team one-on-ones",
+    "completed": false,
+    "priority": "medium",
+    "dueDate": "2024-12-21",
+    "categoryId": "1",
+    "createdAt": "2024-12-18T11:45:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 5,
+    "title": "Review and approve budget proposal",
+    "completed": false,
+    "priority": "high",
+    "dueDate": "2024-12-20",
+    "categoryId": "1",
+    "createdAt": "2024-12-18T13:20:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 6,
+    "title": "Grocery shopping",
+    "completed": false,
+    "priority": "medium",
+    "dueDate": "2024-12-19",
+    "categoryId": "2",
+    "createdAt": "2024-12-18T08:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 7,
+    "title": "Call dentist for appointment",
+    "completed": true,
+    "priority": "low",
+    "dueDate": "2024-12-18",
+    "categoryId": "2",
+    "createdAt": "2024-12-17T16:30:00.000Z",
+    "completedAt": "2024-12-18T12:15:00.000Z"
+  },
+  {
+    "Id": 8,
+    "title": "Pay utility bills",
+    "completed": false,
+    "priority": "medium",
+    "dueDate": "2024-12-22",
+    "categoryId": "2",
+    "createdAt": "2024-12-18T09:30:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 9,
+    "title": "Plan weekend trip",
+    "completed": false,
+    "priority": "low",
+    "dueDate": "2024-12-23",
+    "categoryId": "2",
+    "createdAt": "2024-12-18T15:45:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 10,
+    "title": "Finish reading project management book",
+    "completed": false,
+    "priority": "low",
+    "dueDate": "2024-12-25",
+    "categoryId": "3",
+    "createdAt": "2024-12-18T19:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 11,
+    "title": "Complete online course module",
+    "completed": false,
+    "priority": "medium",
+    "dueDate": "2024-12-21",
+    "categoryId": "3",
+    "createdAt": "2024-12-18T20:30:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 12,
+    "title": "Practice guitar for 30 minutes",
+    "completed": true,
+    "priority": "low",
+    "dueDate": "2024-12-18",
+    "categoryId": "3",
+    "createdAt": "2024-12-18T07:00:00.000Z",
+    "completedAt": "2024-12-18T18:45:00.000Z"
+  }
+]

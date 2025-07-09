@@ -1,0 +1,70 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#F4F3FF',
+          100: '#EBEAFF',
+          200: '#D9D7FE',
+          300: '#BDB6FE',
+          400: '#A195FC',
+          500: '#5B4FE9',
+          600: '#4C3ECE',
+          700: '#3D2FAD',
+          800: '#312489',
+          900: '#1E1668',
+        },
+        secondary: {
+          50: '#F5F4FF',
+          100: '#EDECFF',
+          200: '#DDD9FF',
+          300: '#C4BCFF',
+          400: '#A898FF',
+          500: '#8B85F1',
+          600: '#7068E0',
+          700: '#5A52CC',
+          800: '#4842A8',
+          900: '#3A3685',
+        },
+        accent: {
+          50: '#FFF5F5',
+          100: '#FFE3E3',
+          200: '#FFCDCD',
+          300: '#FFA8A8',
+          400: '#FF8787',
+          500: '#FF6B6B',
+          600: '#FA5252',
+          700: '#F03E3E',
+          800: '#E03131',
+          900: '#C92A2A',
+        },
+        surface: '#FFFFFF',
+        background: '#F8F9FD',
+        success: '#4ADE80',
+        warning: '#FBBF24',
+        error: '#EF4444',
+        info: '#3B82F6',
+      },
+      fontFamily: {
+        'display': ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        'body': ['Inter', 'system-ui', 'sans-serif'],
+      },
+      animation: {
+        'pulse-subtle': 'pulse 2s infinite',
+        'bounce-subtle': 'bounce 0.5s ease-in-out',
+      },
+      boxShadow: {
+        'elevation-1': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        'elevation-2': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'elevation-3': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'elevation-4': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+      },
+    },
+  },
+  plugins: [],
+}
