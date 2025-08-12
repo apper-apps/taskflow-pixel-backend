@@ -12,6 +12,8 @@ const Header = ({
   onMobileMenuToggle,
   className 
 }) => {
+  const authContext = useContext(AuthContext);
+  
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
@@ -63,9 +65,8 @@ const Header = ({
             </Button>
             
             <Button
-              onClick={() => {
+onClick={() => {
                 if (window.confirm('Are you sure you want to logout?')) {
-                  const authContext = React.useContext(AuthContext);
                   authContext?.logout();
                 }
               }}

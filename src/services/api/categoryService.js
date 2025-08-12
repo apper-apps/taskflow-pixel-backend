@@ -273,13 +273,12 @@ export const categoryService = {
 
       return false;
     } catch (error) {
-      if (error?.response?.data?.message) {
+if (error?.response?.data?.message) {
         console.error("Error deleting category:", error?.response?.data?.message);
       } else {
         console.error(error.message);
       }
       return false;
-return false;
     }
   }
 };
