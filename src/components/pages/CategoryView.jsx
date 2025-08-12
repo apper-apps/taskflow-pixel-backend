@@ -38,7 +38,7 @@ const CategoryView = () => {
         const category = categoriesData.find(cat => cat.Id === parseInt(categoryId));
         setCurrentCategory(category);
         
-        const categoryTasks = allTasks.filter(task => task.categoryId === categoryId);
+const categoryTasks = allTasks.filter(task => task.categoryId === categoryId);
         setTasks(categoryTasks);
       } else {
         setCurrentCategory(null);
@@ -96,7 +96,7 @@ const CategoryView = () => {
     }
     
     return categories.reduce((groups, category) => {
-      const categoryTasks = filteredTasks.filter(task => task.categoryId === category.Id.toString());
+const categoryTasks = filteredTasks.filter(task => task.categoryId === category.Id.toString());
       if (categoryTasks.length > 0) {
         groups[category.Id] = {
           category,

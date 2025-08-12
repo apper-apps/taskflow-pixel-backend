@@ -78,7 +78,7 @@ const ArchiveView = () => {
     updateFilters({ search: searchTerm });
   };
 
-  const groupedTasks = filteredTasks.reduce((groups, task) => {
+const groupedTasks = filteredTasks.reduce((groups, task) => {
     if (!task.completedAt) return groups;
     
     const date = format(new Date(task.completedAt), "yyyy-MM-dd");

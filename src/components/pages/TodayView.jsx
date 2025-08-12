@@ -24,7 +24,7 @@ const TodayView = () => {
     
     try {
       const allTasks = await taskService.getAll();
-      const todayTasks = allTasks.filter(task => {
+const todayTasks = allTasks.filter(task => {
         return task.dueDate && isToday(new Date(task.dueDate));
       });
       

@@ -23,7 +23,7 @@ const UpcomingView = () => {
     
     try {
       const allTasks = await taskService.getAll();
-      const upcomingTasks = allTasks.filter(task => {
+const upcomingTasks = allTasks.filter(task => {
         if (!task.dueDate) return false;
         const taskDate = new Date(task.dueDate);
         const tomorrow = startOfDay(addDays(new Date(), 1));

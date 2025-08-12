@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
+import React, { useContext } from "react";
+import { AuthContext } from "../../App";
 import ApperIcon from "@/components/ApperIcon";
-import Button from "@/components/atoms/Button";
 import SearchBar from "@/components/molecules/SearchBar";
+import Button from "@/components/atoms/Button";
 import { cn } from "@/utils/cn";
 
 const Header = ({ 
@@ -50,7 +52,7 @@ const Header = ({
             />
           </div>
 
-          <div className="flex items-center gap-2">
+<div className="flex items-center gap-2">
             <Button
               onClick={onQuickAdd}
               className="flex items-center gap-2"
@@ -59,11 +61,26 @@ const Header = ({
               <ApperIcon name="Plus" size={20} />
               <span className="hidden sm:inline">Add Task</span>
             </Button>
+            
+            <Button
+              onClick={() => {
+                if (window.confirm('Are you sure you want to logout?')) {
+                  const authContext = React.useContext(AuthContext);
+                  authContext?.logout();
+                }
+              }}
+              variant="outline"
+              size="medium"
+              className="flex items-center gap-2"
+            >
+              <ApperIcon name="LogOut" size={20} />
+              <span className="hidden sm:inline">Logout</span>
+            </Button>
           </div>
         </div>
       </div>
     </motion.header>
-  );
+);
 };
 
 export default Header;

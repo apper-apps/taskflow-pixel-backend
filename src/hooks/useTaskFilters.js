@@ -15,17 +15,17 @@ const useTaskFilters = (tasks) => {
 
     return tasks.filter(task => {
       // Search filter
-      if (filters.search && !task.title.toLowerCase().includes(filters.search.toLowerCase())) {
+if (filters.search && !task.title.toLowerCase().includes(filters.search.toLowerCase())) {
         return false;
       }
 
       // Category filter
-      if (filters.categories.length > 0 && !filters.categories.includes(task.categoryId)) {
+if (filters.categories.length > 0 && !filters.categories.includes(task.categoryId)) {
         return false;
       }
 
       // Priority filter
-      if (filters.priorities.length > 0 && !filters.priorities.includes(task.priority)) {
+if (filters.priorities.length > 0 && !filters.priorities.includes(task.priority)) {
         return false;
       }
 

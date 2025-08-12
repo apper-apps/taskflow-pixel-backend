@@ -26,7 +26,7 @@ const TaskCard = ({
     
     setIsCompleting(true);
     try {
-      const updatedTask = await taskService.update(task.Id, {
+const updatedTask = await taskService.update(task.Id, {
         completed: !task.completed
       });
       
@@ -120,7 +120,7 @@ const TaskCard = ({
                 task.completed && "line-through text-gray-500"
               )}
             >
-              {task.title}
+{task.title}
             </h3>
             
             <div className="flex items-center gap-1">

@@ -76,7 +76,7 @@ const Dashboard = () => {
         <div className="bg-white rounded-lg shadow-elevation-2 p-4">
           <div className="flex items-center gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary-600 font-display">
+<div className="text-2xl font-bold text-primary-600 font-display">
                 {tasks.filter(t => !t.completed).length}
               </div>
               <div className="text-sm text-gray-600">Active</div>
