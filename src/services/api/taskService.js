@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import React from "react";
 
 export const taskService = {
   async getAll() {
@@ -150,13 +151,13 @@ export const taskService = {
             record.errors?.forEach(error => {
               toast.error(`${error.fieldLabel}: ${error.message}`);
             });
-            if (record.message) toast.error(record.message);
+if (record.message) toast.error(record.message);
           });
         }
 
         if (successfulRecords.length > 0) {
           const createdTask = successfulRecords[0].data;
-          return {
+          const mappedTask = {
             Id: createdTask.Id,
             title: createdTask.title_c || "",
             completed: createdTask.completed_c || false,
@@ -166,11 +167,41 @@ export const taskService = {
             createdAt: createdTask.created_at_c || createdTask.CreatedOn,
             completedAt: createdTask.completed_at_c || null
           };
+
+          // Invoke Edge Function to send webhook notification
+          try {
+            const notificationResponse = await apperClient.functions.invoke(
+              import.meta.env.VITE_NOTIFY_TASK_CREATED,
+              {
+                body: JSON.stringify({
+                  taskId: mappedTask.Id,
+                  title: mappedTask.title,
+                  completed: mappedTask.completed,
+                  priority: mappedTask.priority,
+                  dueDate: mappedTask.dueDate,
+                  categoryId: mappedTask.categoryId,
+                  createdAt: mappedTask.createdAt,
+                  completedAt: mappedTask.completedAt
+                }),
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              }
+            );
+
+            if (notificationResponse && !notificationResponse.success) {
+              console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_NOTIFY_TASK_CREATED}. The response body is: ${JSON.stringify(notificationResponse)}.`);
+            }
+          } catch (edgeFunctionError) {
+            console.info(`apper_info: Got this error in this function: ${import.meta.env.VITE_NOTIFY_TASK_CREATED}. The error is: ${edgeFunctionError.message}`);
+          }
+
+          return mappedTask;
         }
       }
 
       return null;
-    } catch (error) {
+} catch (error) {
       if (error?.response?.data?.message) {
         console.error("Error creating task:", error?.response?.data?.message);
       } else {
