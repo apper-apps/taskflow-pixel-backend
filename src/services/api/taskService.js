@@ -131,7 +131,7 @@ export const taskService = {
         records: [dbTaskData]
       };
 
-const response = await apperClient.createRecord("task_c", params);
+      const response = await apperClient.createRecord("task_c", params);
 
       if (!response.success) {
         console.error(response.message);
@@ -156,7 +156,7 @@ const response = await apperClient.createRecord("task_c", params);
 
         if (successfulRecords.length > 0) {
           const createdTask = successfulRecords[0].data;
-          const formattedTask = {
+          return {
             Id: createdTask.Id,
             title: createdTask.title_c || "",
             completed: createdTask.completed_c || false,
@@ -166,35 +166,6 @@ const response = await apperClient.createRecord("task_c", params);
             createdAt: createdTask.created_at_c || createdTask.CreatedOn,
             completedAt: createdTask.completed_at_c || null
           };
-
-          // Send task data to webhook via Edge Function (fire-and-forget)
-          try {
-            const { ApperClient } = window.ApperSDK;
-            const webhookClient = new ApperClient({
-              apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
-              apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
-            });
-
-            const webhookResponse = await webhookClient.functions.invoke(
-              import.meta.env.VITE_SEND_TASK_WEBHOOK,
-              {
-                body: JSON.stringify(formattedTask),
-                headers: {
-                  'Content-Type': 'application/json'
-                }
-              }
-            );
-
-            // Log webhook errors but don't throw - task creation should succeed regardless
-            if (!webhookResponse.success) {
-              console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_SEND_TASK_WEBHOOK}. The response body is: ${JSON.stringify(webhookResponse)}.`);
-            }
-          } catch (webhookError) {
-            // Log webhook invocation errors but don't throw
-            console.info(`apper_info: Got this error in this function: ${import.meta.env.VITE_SEND_TASK_WEBHOOK}. The error is: ${webhookError.message}`);
-          }
-
-          return formattedTask;
         }
       }
 
