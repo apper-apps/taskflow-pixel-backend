@@ -154,9 +154,9 @@ export const taskService = {
           });
         }
 
-        if (successfulRecords.length > 0) {
+if (successfulRecords.length > 0) {
           const createdTask = successfulRecords[0].data;
-          return {
+          const taskObject = {
             Id: createdTask.Id,
             title: createdTask.title_c || "",
             completed: createdTask.completed_c || false,
@@ -166,6 +166,26 @@ export const taskService = {
             createdAt: createdTask.created_at_c || createdTask.CreatedOn,
             completedAt: createdTask.completed_at_c || null
           };
+
+          // Send task data to webhook via Edge Function
+          try {
+            const { ApperClient } = window.ApperSDK;
+            const apperClient = new ApperClient({
+              apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+              apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+            });
+
+            await apperClient.functions.invoke(import.meta.env.VITE_SEND_TASK_TO_WEBHOOK, {
+              body: JSON.stringify(taskObject),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            });
+          } catch (error) {
+            console.info(`apper_info: Got this error an this function: ${import.meta.env.VITE_SEND_TASK_TO_WEBHOOK}. The error is: ${error.message}`);
+          }
+
+          return taskObject;
         }
       }
 
